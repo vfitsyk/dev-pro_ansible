@@ -1,0 +1,17 @@
+- name: Import the GPG keys of the Jenkins repository
+  shell: wget -q -O - {{ jenkins_key }} | apt-key add -
+  args:
+    warn: false
+- name: Add the Jenkins Debian repository
+  apt_repository:
+    repo: deb {{ jenkins_url }} binary/
+    filename: 'jenkins'
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: latest
+    update_cache: yes
+- name: Ensure Jenkins is started
+  service:
+    name: jenkins
+    state: started

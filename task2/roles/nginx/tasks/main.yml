@@ -1,0 +1,11 @@
+- name: Install nginx
+  apt: name=nginx state=latest
+- name: Copy nginx additional config
+  copy:
+    src: jenkins
+    dest: /etc/nginx/sites-enabled/jenkins
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nginx

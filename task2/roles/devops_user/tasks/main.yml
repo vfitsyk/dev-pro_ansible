@@ -1,0 +1,13 @@
+- name: Create "devops" group on both VMs
+  group:
+    name: devops
+- name: Create "devops:devops" user on both VMs and Grant "devops" user all necessary system’s privileges (configure sudoers)
+  user:
+    name: devops
+    group: devops
+    groups: sudo
+- name: Set authorized key taken from file
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"

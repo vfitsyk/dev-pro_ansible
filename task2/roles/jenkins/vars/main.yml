@@ -1,0 +1,2 @@
+jenkins_key: https://pkg.jenkins.io/debian/jenkins.io.key
+jenkins_url: http://pkg.jenkins.io/debian-stable

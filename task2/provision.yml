@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  roles:
+  - devops_user
+  - nginx
+
+- hosts: appserver
+  roles:
+  - devops_user
+  - java
+  - jenkins

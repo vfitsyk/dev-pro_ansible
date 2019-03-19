@@ -1,0 +1,6 @@
+- name: Install Java
+  apt:
+    name: openjdk-8-jdk
+    state: latest
+    install_recommends: no
+    update_cache: yes
